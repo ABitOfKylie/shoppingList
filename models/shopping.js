@@ -26,3 +26,5 @@ var thingsToBuy = {
 };
 
 module.exports = thingsToBuy;
+//checks out with both Omar and hw
+
