@@ -3,15 +3,16 @@
 }
 
 body{
-	background: red; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(0deg, red, yellow); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(0deg, red, yellow); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(0deg, red, yellow); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(0deg, red, yellow); /* Standard syntax (must be last) */
+	background: rgb (120,24,12); /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(0deg, rgb (120,24,12), rgb(234,228,225)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(0deg, rgb (120,24,12), rgb(234,228,225)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(0deg, rgb (120,24,12), rgb(234,228,225)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(0deg, rgb (120,24,12), rgb(234,228,225)); /* Standard syntax (must be last) */
 }
 
 .jumbotron{
-	color:white;
+	color:#0033cc;
+	border: rgb(120, 24, 12) 4px;
 /*	max-height: 300px;*/
 	
 }
@@ -59,7 +60,7 @@ p{
 }
 /*textarea{
 		font-size: 28px;
-		color: red;
+		color: rgb (120,24,12);
 		font-style: bold;
 
 }*/
@@ -71,12 +72,12 @@ button{
 	width: 100px;
 	height: 25px;
 	font-size: 15px;
-	color:red;
+	color:rgb (120,24,12);
 	font-style: bold;	
 }
 /*#ca{
 	font-style: bold;
-	color:red;
+	color:rgb (120,24,12);
 }*/
 
 li{

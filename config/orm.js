@@ -20,8 +20,8 @@ function objToSql(ob){
 }
 
 var orm = {
-	all: function (burgers, cb) {
-		var queryString = 'SELECT * FROM ' + burgers + ';';
+	all: function (tableInput, cb) {
+		var queryString = 'SELECT * FROM ' + tableInput + ';';
 		connection.query(queryString, function (err, result) {
 			if (err) throw err;
 			cb(result);
@@ -29,8 +29,8 @@ var orm = {
 	},
 		// vals is an array of values that we want to save to cols
 		// cols are the columns we want to insert the values into
-	create: function (burgers, cols, vals, cb) {
-		var queryString = 'INSERT INTO ' + burgers;
+	create: function (table, cols, vals, cb) {
+		var queryString = 'INSERT INTO ' + table;
 
 		queryString = queryString + ' (';
 		queryString = queryString + cols.toString();
@@ -48,8 +48,8 @@ var orm = {
 	},
 		// objColVals would be the columns and values that you want to update
 		// an example of objColVals would be {name: panther, sleepy: true}
-	update: function (burgers, objColVals, condition, cb) {
-		var queryString = 'UPDATE ' + burgers;
+	update: function (table, objColVals, condition, cb) {
+		var queryString = 'UPDATE ' + table;
 
 		queryString = queryString + ' SET ';
 		queryString = queryString + objToSql(objColVals);
@@ -63,7 +63,7 @@ var orm = {
 		});
 	},
 	delete: function (table, cb) {
-        var queryString = 'TRUNCATE '+table;
+        var queryString = 'TRUNCATE '+ table;
         connection.query(queryString, function (err, result) {
             if (err) throw err;
             cb(result);
