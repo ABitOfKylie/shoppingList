@@ -1,4 +1,7 @@
 node_modules
 bower_components
-DS_store
-*log
+.DS_store
+*.log
+README.md
+
+

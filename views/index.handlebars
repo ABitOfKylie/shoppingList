@@ -1,128 +1,154 @@
 <div class="container">
-  <div class ="jumbotron">
-<!--     <img src="/assets/images/burger.png">
- -->    <h1 id="mainText"> Shopping List</h1>
-    <h2>Pickles, Lettuce, Bacon, Bread, Milk!</h2>
-    
-  </div> <!-- end of jumbotron -->
-</div> <!-- end of main container -->
-<!-- //-------Create New Item------------- -->
-  <div class = "section">
-	<div class = "row">
-		<div class = "col-md-6 col-md-offset-3 text-center enter_section">
-<!-- 		  <h2 class="lead">Add a Grocery Item h2 class lead</h2>
- -->			<form method="POST" action="/shop_items/create" class = "input-group">
-
-				<input type="text" name="item" class=" form-control" value = "" id = "enter_text"placeholder="Enter a grocery item.">
-				<span class = "input-group-btn">
-					<button class = "btn btn-secondary" type="submit">Add Item</button>  
-				</span>
-
-			</form>
-		</div>
-	</div>
-
-<!--   <div class="tickercontainer">
-    <ul id="webTicker">
-      <li>Cheddar Cheese</li>
-      <li>Pickles</li>
-      <li>Jalapenos</li>
-    </ul>
-  </div> -->
- 
-  
+  <div class="row">
+    <div class="col-md-12">
+       <div class="card card-inverse card-primary text-xs-center">
+            <div class="card-header card-inverse">
+                Shopping List
+            </div>
+            <div class="card-block">
+                <blockquote class="card-blockquote">
+                    <p>Choose items from your standard shopping list, create new list items, save items to your standard list...list, buy, </p>
+                    <footer>Generated Random Quote <cite title="Source Title">Source Title</cite></footer>
+                </blockquote>
+            </div>
+            <div class="card-footer text-muted">
+                Today's Date : <span id="date"></span>
+            </div>
+        </div>
+    </div>       
+  </div>
 </div>
-  <!-- //-------Item List & Purchased Btn Post/Put------------- -->
-	<div class = "row">
-		{{#each item_data}}
-			{{#unless this.purchased}}
-			<div class = "col-xs-4 text-center">
-				<pre> {{this.id}}. {{this.item}}</pre>
-			</div>
-		<div class = "col-xs-3 text-center">
-			<form method="POST" action="/shop_items/update?_method=PUT" class = "button-size">
-				<input type ="hidden" name ="id" type = "text" value = {{this.id}}>
-				<br>
-				<button type = "submit" class = "btn btn-default">Purchased</button>
-			</form>
-		</div>
-		{{/unless}}
-		{{/each}}
-	</div>
-  <!-- //-------If Purchased & ReadOnlyPurchased List---------- -->
-		<div class = "col-xs-6 text-center" class = "bought">
-			{{#each item_data}}
-			   {{#if this.purchased}}
-			   	<input class = "form-control" type = "text" placeholder = "{{this.id}}. {{this.item}}" readonly>
-			   	{{/if}}
-		   	{{/each}}
-   		</div>
-
-
-  				<!-- <div class="form-group"> -->
-
-
-    <!-- <label for="ca">Name Your burger:</label> -->
-  <!--   <textarea class="form-control input-lg" type="text" name" rows ='3'></textarea> -->
-    
-
-
-
-<!-- {{!-- Item list before purchase --}}
-<!--  -->
-<!-- <container> -->
-<!-- <div class = "row">
-  <div class = "col-md-4 col-md-offset-1">
-    <div class="panel-panel default"> -->
-<ol id = "left-group">
-  <h1>Let's get shopping!</h1>
-
-  {{#each groceries}}
-    {{#unless this.purchased}}
+<!-- Buttons in input groups must wrapped in a .input-group-btn for proper alignment and sizing. This is required due to default browser styles that cannot be overridden.
+<div class="col-lg-6">
     <div class="input-group">
-    <li>
-      <!-- <li class = "list-group-item" class="text-capitalize"> -->
-        
-        <!-- <p class="lead"> {{this.item}}</p> -->
-        {{this.item}}
-
-        <form action="groceries/update/{{this.id}}?_method=PUT" method="POST">
-          <input type="hidden" class = "form-control" id="toBuy" name="addNew" value="true">
-          <button class="btn btn-default btn-lg" id="addNew" type="submit">Purchased</button>
-        </form>
-       
-      </li>
-       </div>
-    {{/unless}}
-  {{/each}}
-</ol>
-
-<!-- </div>
-</div>
+      <input type="text" class="form-control" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button">Go!</button>
+      </span>
+    </div>
+  </div>
 </div> -->
-<!-- </container> -->
 
-{{!--  Purchased Items --}}
-<!-- <div class = "row">
-  <div class = "col-md-6 col-md-offset-1"> -->
-    <!-- <div class="panel-panel default"> -->
+<!-- //-------Create New Item------------- 
+problem with btn if line 32: input-group-addon then no click function, if input-group-button then it doesn't align correctly-->
+  <div class = "section col-md-12">
+	<div class = "row">
+		<div class = "col-md-6 text-center enter_section">
+<!-- 		  <h2 class="lead">Add a Grocery Item h2 class lead</h2>
+ -->			<form method="POST" action="/shop_items/create">
+					<div class = "input-group">
+						<input type="text" name="item" class=" form-control" value = "" id = "enter_text" placeholder="Enter a grocery item input-group btn-->.">
 
-<div>
-<ul id = "right-group">
-  {{#each groceries}}
-    {{#if this.purchased}}
-      <li class ="list-group-item">
-        {{this.item}}
-      </li>
-    {{/if}}
-  {{/each}}
-</ul>
-<!-- </div> -->
-<!-- </div> -->
+						<span class = "input-group-btn">
+						<button class = "btn btn-default" type = "submit">Add This Item</button></span>
+					</div>			
+
+			</form>
+		</div>
+	</div>
+		<div class = "col-md-6 text-center side_section">
+  			<p>Move the mouse over the button to open the dropdown menu.</p>
+
+			<div class="dropdown">
+			  <button class="dropbtn">Dropdown</button>
+			  <div class="dropdown-content">
+			    <a href="#">Link 1</a>
+			    <a href="#">Link 2</a>
+			    <a href="#">Link 3</a>
+			  </div>
+			</div>
+		</div>
+	</div>
+
+<!-- //-------Items To Buy List & PurchBtn Post/Put------------- -->
+
+<div class="panel panel-default col-md-6">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Items to Buy <i class="fa fa-shopping-cart" aria-hidden="true"></i>
 </div>
 
-<form action="groceries/delete/?_method=DELETE" method="POST">
- <button type="submit" id="killIt">Clear all the burgers</button>
-</form>
+  <!-- Table -->
+  <table class="table table-condensed">
+  {{#each item_data}}
+			{{#unless this.purchased}}
+			
+			<pre> {{this.id}}. {{this.item}}</pre>
+			<form method="POST" action="/shop_items/update?_method=PUT" class = "button-size">
+					<input type ="hidden" name ="id" type = "text" value = {{this.id}}>
+					<button type = "submit" class = "btn btn-default">Purchased <i class="fa fa-check-square fa-1x" aria-hidden="true"></i>
+					</button>
+				</form>
+			{{/unless}}
+		{{/each}}
+  </table>
 </div>
- -->
+
+  <!-- //-------Item List & Purchased Btn Post/Put------------- -->
+	<div class="panel panel-default col-md-6">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Purchased Items <i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i>
+</div>
+
+  <!-- Table -->
+  <table class="table table-condensed">
+		{{#each item_data}}
+			{{#if this.purchased}}
+			<input class = "form-control hover form-inline" type = "text" placeholder = "{{this.id}}. {{this.item}}" readonly>
+				<form  method="POST" action="/shop_items/update?_method=PUT" class = "button-size">
+				</form>
+				<div class ="form-inline"> 
+					<input type ="hidden" name ="id" type = "text" value = {{this.id}}>
+					<button type = "submit" class = "btn btn-default">Purchased <i class="fa fa-check-square fa-1x" aria-hidden="true"></i></button>
+				</div>
+			{{/if}}
+		{{/each}}
+	</table>
+</div>
+  <!-- //-------If Purchased & ReadOnlyPurchased List---------- -->
+  <section class = "col-xs-12">
+  	<div class = "row">
+		<div class = "col-md-6 col-md-offset-3 text-center bought">			<label>Standard Items</label>
+				{{#each item_data}}
+			   		{{#if this.purchased}}
+			   			<input class = "form-control" type = "text" placeholder = "{{this.id}}. {{this.item}}" readonly>
+			   		{{/if}}
+		   		{{/each}}
+		   		<form action="groceryItem/delete/?_method=DELETE" method="POST">
+ 					<button type="submit">Clear all the items</button>
+				</form>
+   		</div>
+	</div>
+<!-- *******trial and error********* -->
+
+
+  <div class="row">
+  	<div class = "col-md-6 col-md-offset-3 text-center bought2">	
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>
+            Fixed Recurring Grocery Items 
+          </h4>
+        </div>
+	        <table class="table table-fixed">
+	          <thead>
+	            <tr>
+	              <th class="col-xs-2">#</th><th class="col-xs-4">Item</th><th class="col-xs-2">Got it!</th>
+	            </tr>
+	          </thead>
+	          <tbody>
+	            <tr>
+	            {{#each item_data}}
+				   {{#if this.purchased}}
+				   	<td><input type ="text" class = "form-control col-xs-2" placeholder = "{{this.id}}" readonly></td>
+					<td><input type ="text" class = "form-control col-xs-4" placeholder = "{{this.item}}" readonly></td>
+	              	<td class="col-xs-2"><i class="fa fa-check-square fa-1x" aria-hidden="true"></i></td>
+				   	{{/if}}
+			   	{{/each}}
+	            </tr>
+          	 </tbody>
+        </table>
+      </div>
+  </div>
+</div>
+</section>
+</div> <! end of container -->

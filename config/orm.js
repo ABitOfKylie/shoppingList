@@ -28,7 +28,7 @@ var orm = {
       });
     },
       delete: function (tableInput, cb) {
-        connection.query('TRUNCATE "+ tableInput+";',
+        connection.query('TRUNCATE '+ tableInput +';',
         function (err, result){
             if (err) throw err;
             cb(result);

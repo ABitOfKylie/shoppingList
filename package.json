@@ -12,6 +12,7 @@
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "express-handlebars": "^3.0.0",
+    "handlebars-helpers": "^0.8.2",
     "method-override": "^2.3.8",
     "mysql": "^2.13.0",
     "nodemon": "^1.11.0",

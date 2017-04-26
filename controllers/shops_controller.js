@@ -12,10 +12,25 @@ router.get('/', function (req, res){
 
 router.post('/shop_items/create', function(req, res) {
 	groceryItem.create(req.body.item, function(result){
-		// console.log(result);
 		res.redirect('/');
 	});
 });
+// idea is to include this function in the post - capitalize str before adding to db
+// Handlebars.registerHelper('lowercase', function (str) {
+//   if(str && typeof str === "string") {
+//     return str.toLowerCase();
+//   }
+//   return '';
+// });
+
+	
+// Previous answer from @Eric seems not to work now, my solution is very similar, but probably the definition of helpers changed a little in new versions of handlebars:
+
+// Handlebars.registerHelper('tolower', function(options) {
+//     return options.fn(this).toLowerCase();
+// }); and in the template:
+// <img src="/media/images/modules/{{#tolower}}{{name}}{{/tolower}}.png"...
+
 
 router.put('/shop_items/update', function (req, res) {
 	groceryItem.update(req.body.id, function(result){
