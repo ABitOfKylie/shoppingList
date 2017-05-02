@@ -39,11 +39,16 @@ router.put('/shop_items/update', function (req, res) {
 	});
 });
 
+// router.truncate('/shop_items/truncate', function (req, res) {
+
+//     groceryItem.truncate(req.body.item,function (result) {
+//         res.redirect('/');
+//     });
 router.delete('/shop_items/delete', function (req, res) {
 
-    groceryItem.delete(req.body.item,function (result) {
-        res.redirect('/');
-    });
+groceryItem.delete(req.body.item,function (result) {
+    res.redirect('/');
+});
 });
 
 module.exports = router;

@@ -27,8 +27,15 @@ var orm = {
         cb(result);
       });
     },
-      delete: function (tableInput, cb) {
-        connection.query('TRUNCATE '+ tableInput +';',
+    //   // truncate: function (tableInput, cb) {
+    //   //   connection.query('TRUNCATE TABLE'+ tableInput +';',
+    //   //   function (err, result){
+    //   //       if (err) throw err;
+    //   //       cb(result);
+    //   //   });
+    // },
+    delete: function (tableInput, cond, cb) {
+        connection.query('DELETE FROM'+ tableInput +' WHERE id ='+cond+';',
         function (err, result){
             if (err) throw err;
             cb(result);

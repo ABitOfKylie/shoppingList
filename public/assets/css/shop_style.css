@@ -1,3 +1,9 @@
+/* <link href="https://fonts.googleapis.com/css?family=Eagle+Lake|Open+Sans:600|Pacifico|Roboto" rel="stylesheet">
+font-family: 'Eagle Lake', cursive;
+font-family: 'Roboto', sans-serif;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Pacifico', cursive;*/
+
 *{
 	text-align: center;
 }
@@ -11,53 +17,34 @@ body{
 	background: -ms-linear-gradient(top, rgba(217,244,241,1) 0%, rgba(217,244,241,1) 8%, rgba(217,244,241,1) 29%, rgba(146,221,205,1) 71%, rgba(146,221,205,1) 84%, rgba(146,221,205,1) 100%);
 	background: linear-gradient(to bottom, rgba(217,244,241,1) 0%, rgba(217,244,241,1) 8%, rgba(217,244,241,1) 29%, rgba(146,221,205,1) 71%, rgba(146,221,205,1) 84%, rgba(146,221,205,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9f4f1', endColorstr='#92ddcd', GradientType=0 );
+	font-family: 'Open Sans', sans-serif;
+
 }
 
-.card{
-	
-	border: #368e83 4px;
-	font-size: 16px;
-	background-color:#48baac;
-	max-width:100%;
-}
-.card-header{
-	font-size:36px;
-}
 
-.table-fixed thead {
-  width: 97%;
-}
-.table-fixed tbody {
-  height: 230px;
-  overflow-y: auto;
-  width: 100%;
-}
-.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
-  display: block;
-}
-.table-fixed tbody td, .table-fixed thead > tr> th {
-  float: left;
-  border-bottom-width: 0;
-}
 
-img{
+/*img{
 	max-width: 300px;
 	max-height:300px;
-}
+}*/
 
-.side-section{
-	float:right;
+.jumbotron {
+	padding-top:10px;
+	padding-bottom:10px;
+	max-height: 240px;
+	background-color: rgb(227, 237, 236);
 }
-#mainText{
-	size:36px;
-	font-color:white !important;
-	font-weight: bold;
+.jumbotron p {
+	margin:5px;
+	font-size: 16px;
+	font-weight:200;
+	font-family: 'Open Sans', sans-serif;
 }
 
 h1{
-	size:18px
-	font-color: green;
-	font-weight: bold;;
+	size:24px
+	font-color: #1f9388;
+	font-family: 'Pacifico', cursive;
 }
 
 h2{
@@ -66,92 +53,61 @@ h2{
 	font-weight: bold;;
 }
 
-ol{
-	float:left;
-	font-size: 26px;
+h3{
+	size:24px
+	font-color: #1f9388;
+	font-family: 'Pacifico', cursive;
 }
 
-ul{
-	float:right;
-	font-size: 26px;
-}
 p{
-	font-size: 18px;
+	font-size: 14px;
 }
-.lead{
-	font-size: 28px;
-	text-align:center;
-	color:black;
-	padding:15px;
-}
-/*textarea{
-		font-size: 28px;
-		color: rgb (120,24,12);
-		font-style: bold;
-
-}*/
-/*#ca{
-	width:500px;
-	height: 50px;
-}*/
-button{
-	width: 100px;
-	height: 25px;
-	font-size: 15px;
-	color:rgb (120,24,12);
-	font-style: bold;	
-}
-/*#ca{
-	font-style: bold;
-	color:rgb (120,24,12);
-}*/
 
 li{
-	background-color:lightyellow;
+	color:black;
+	background-color:#c7e5e2;
 	border:15px;
 	border-radius: 15px;
 	width:500px;
 	height:30px;
 	margin-bottom:10px;
 }
-
-#toEat{
-    height:75px;
-    width:300px;
-    background-color: #fff;
-    text-align:center;
+.panel{
+	padding-bottom:10px;
 }
 
-.choice{
-	width:470px;
-	height: 30px;
-	font-size: 18px !important;
-	font-weight:bolder !important;
-	color:orange !important;
+/****** Entry (Input Area) Section ******/
+
+.long_btn{
+	width: 400px;
+	height: 35px;
+	color:black!important;
+	font-size: 15px;
+	font-style: bold;
+	background-color: #d9f4f1;
+    border: 4px turquoise;
 }
-.footer{
-	float: left;
-	padding-top: 30px;
+.newBtn{
+	width: auto;
+	height: 35px;
+	color:black!important;
+	font-size: 15px;
+	font-style: bold;
+	background-color: lavendar;
+    border: 4px turquoise;
+}
+.gotItBtn{
+
+	font-style: bold;
+/*    background-color: #48baac;
+*/    background-color: #d5f4e6;
+    border: 4px turquoise;
+}
+.clearBtn{
+	background-color: #eea29a;
+	float:right;
 }
 
-#left-group{
-	position:absolute;
-	left:0;
-	padding-left:50px;
-}
-#right-group{
-	position:absolute;
-	right:0;
-	padding-right:50px;
-}
-#killIt{
-	margin:300px;
-}
-#devourBtn{
-	position:absolute;
-
-
-}
 /*------------Dropdown stdItems------------*/
 .dropbtn {
     background-color: #48baac;
@@ -192,3 +148,52 @@ li{
 .dropdown:hover .dropbtn {
     background-color: #368e83;
 }
+
+/****** Main Section Tables ******/
+
+table {
+    table-layout: fixed;
+}
+
+.table-fixed thead {
+  width: 97%;
+}
+.table-fixed tbody {
+  height: 410px;
+  overflow-y: auto;
+  width: 100%;
+}
+.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+  display: block;
+}
+.table-fixed tbody td, .table-fixed thead > tr> th {
+  float: left;
+  border-bottom-width: 0;
+}
+
+/*Lines 130 to 147 are suggestions on controlling the table cell widths*/
+/*.toBuy{
+	table-layout: fixed;
+	border-collapse: collapse;
+}
+*/
+/*td:first-child{
+	width:10%;
+}
+td:second-child{
+	width:70%;
+}
+td:third-child{
+	width:10%;
+}
+td:last-child{
+	width:10%;
+}*/
+.footer{
+	float: left;
+	padding-top: 30px;
+}
+
+
+
+
