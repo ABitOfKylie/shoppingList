@@ -15,12 +15,14 @@ var thingsToBuy = {
 		orm.update('shop_items', id, cb);
 	},
 
-	// truncate: function (tableInput, cb) {
- //        orm.truncate('shop_items', tableInput, cb);
- //    },
+ 	// truncate: function (tableInput, cb){
+ 	// 	orm.truncate('shop_items', tableInput, cb);
+ 	// },
+
     delete: function (id, cb) {
         orm.delete('shop_items', id, cb);
     }
+   
 };
 
 module.exports = thingsToBuy;

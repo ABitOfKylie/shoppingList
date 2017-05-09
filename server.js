@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var methodOverride = require("method-override");
+var logger = require("morgan");
 var exphbs = require('express-handlebars');
 var helpers = require('handlebars-helpers');
 
