@@ -11,7 +11,7 @@
 		    			<input type="text" class="form-control" id="section" name="section"/>
 		    		</div> -->
 		    		<!-- <div>  -->
-		    			<button type="submit" class="btn btn-default">New Item! <i class="fa fa-cart-plus fa-1x" aria-hidden="true"></i></button>
+		    			<button type="submit" class="btn btn-default newBtn">New Item! <i class="fa fa-cart-plus fa-1x" aria-hidden="true"></i></button>
 		    		</div>
 	    		</form>		    		
 			</div>
@@ -44,49 +44,55 @@
 	  			 <div class="panel-body fixed-panel">
 					{{#each item_data}}
 						{{#unless this.purchased}}
-<!-- 						<pre> {{this.id}}: {{this.item}}</pre>
- -->						<!-- <pre> {{this.section}}</pre> -->
-						
+<!-- 						<pre>{{this.item}}</pre>-->						
 							<form method="POST" action="/shop_items/update?_method=PUT" class = "form-inline">
 								<div class="input-group">
-									<input type="text" name="item" value={{this.item}}>
+									<input type="text" name="item" value={{this.item}} readonly="true"/>
+									<input type="hidden" name="id" value={{this.id}} />
+									<input type="hidden" name="purchased" value="true"/>
 									<span class="input-group-btn"><button type="submit" class="btn btn-xs gotItBtn "><i class="fa fa-check-square fa-1x" aria-hidden="true"></i></button></span>
-									<span class="input-group-btn"><button class="btn btn-xs gotItBtn" type="button"><i class="fa fa-arrow-right fa-1x" aria-hidden="true"></i></button></span>
+									<span class="input-group-btn"><button type="submit" class="btn btn-xs gotItBtn" type="button"><i class="fa fa-arrow-right fa-1x" aria-hidden="true"></i></button></span>
 								</div>
 							</form>
 						{{/unless}}
 					{{/each}}
 				</div>
+				<div class="panel-footer form-control">
+					<span>{{this.id}}. {{this.item}}</span>
+					<form method="POST" action="/shop_items/truncate" class="form-inline">
+						<div class="input-group">
+							<span class="input-group-btn">
+							<input type="hidden" name ="item" type="text" value={{this.id}}>
+		        			<button class="btn btn-xs clearBtn" type="submit">Clear All <i class="fa fa-trash fa-1x" aria-hidden="true"></i></button>
+			      			</span>
+		      			</div>
+					</form>
+				</div>
 			</div>
 		</div>
-		
-
  <!-- ***************begin 2nd Table*********************** -->
 		<div class="col-md-4">
 			<div class="panel panel-default text-center">
-	  		<!-- Default panel contents this is the second table -->
-	  			
+	  		<!-- this is the second table -->	
 <!-- 				<div class="well well-sm">
- -->		  			<div class="panel-heading">
-
-		  				<h3>Standard Item List <i class="fa fa-shopping-cart" aria-hidden="true"></i></h3>
-		  				</div>
-	  			<!-- </div> -->
-			
+-->		  		<div class="panel-heading">
+  					<h3>Standard Item List <i class="fa fa-shopping-cart" aria-hidden="true"></i></h3>
+  				</div>
 				<div class="panel-body fixed-panel">
 					{{#each item_data}}
 							   {{#if this.purchased}}
+<!-- 					<span class = "form-control">{{this.id}}. {{this.item}}</span>
+ -->
 					 <form method="POST" action="/shop_items/delete" class="form-inline">
 						<div class="input-group">
 							<span class="input-group-btn">
-		        			<button class="btn btn-xs gotItBtn" type="button"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+		        			<a class="btn btn-xs gotItBtn" href="/shop_items/update/{{this.id}}/{{this.purchased}}"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
 			      			</span>
-			      			<input type="text" placeholder="purchased..." value="{{this.item}}">
+			      			<input type="text" name="item" placeholder="purchased..." value="{{this.item}}" readonly="true"/>
+			      			<input type="hidden" name="id" value={{this.id}} />
 			      			<span class="input-group-btn">
-		        			<button class="btn btn-xs clearBtn" type="button"><i class="fa fa-trash fa-1x" aria-hidden="true"></i></button>
+		        			<button class="btn btn-xs clearBtn" type="submit"><i class="fa fa-trash fa-1x" aria-hidden="true"></i></button>
 			      			</span>
-							
-			      			
 			    		</div>
 			    	</form> 
 			    			{{/if}}

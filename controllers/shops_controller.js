@@ -9,6 +9,14 @@ router.get('/', function (req, res){
 	});
 });
 
+router.get('/shop_items/update/:id/:purchased', function (req, res){
+	console.log("inside update in reverse" + req.params.id + req.params.purchased);
+	var returnItem = false;
+	groceryItem.update(req.params.id, returnItem, function(result){
+		console.log(result);
+		res.redirect('/');
+	});
+});
 
 router.post('/shop_items/create', function(req, res) {
 	groceryItem.create(req.body.item, function(result){
@@ -16,40 +24,34 @@ router.post('/shop_items/create', function(req, res) {
 	});
 });
 // idea is to include this function in the post - capitalize str before adding to db
-// Handlebars.registerHelper('lowercase', function (str) {
-//   if(str && typeof str === "string") {
-//     return str.toLowerCase();
-//   }
-//   return '';
+//{{capitalize}}
+// Handlebars.registerHelper('capitalize', function(str) {  
+//   return str.charAt(0).toUpperCase() + str.slice(1);
 // });
 
-	
-// Previous answer from @Eric seems not to work now, my solution is very similar, but probably the definition of helpers changed a little in new versions of handlebars:
-
-// Handlebars.registerHelper('tolower', function(options) {
-//     return options.fn(this).toLowerCase();
-// }); and in the template:
-// <img src="/media/images/modules/{{#tolower}}{{name}}{{/tolower}}.png"...
-
-
 router.put('/shop_items/update', function (req, res) {
-	groceryItem.update(req.body.id, function(result){
+	console.log("inside shops contoller value of req.body.id");
+	console.log(req.body.id + req.body.purchased);
+
+	groceryItem.update(req.body.id, req.body.purchased, function(result){
 		console.log(result);
 		res.redirect('/');
 	});
 });
 
-// router.post('/shop_items/truncate', function (req, res) {
-		// console.log("in the truncate func controller");
-//     groceryItem.truncate(req.body.item,function (result) {
-//         res.redirect('/');
-//     });
-// });
+router.post('/shop_items/truncate', function (req, res) {
+	console.log(req.body.item);
+	console.log("now inside post/truncate controller");
+	groceryItem.truncate(req.body.item,function (result) {
+    res.redirect('/');
+	});
+});
+
 
 router.post('/shop_items/delete', function (req, res) {
-	console.log(req.body.item);
+	console.log(req.body.id);
 	console.log("now inside post/delete controller");
-	groceryItem.delete(req.body.item,function (result) {
+	groceryItem.delete(req.body.id,function (result) {
     res.redirect('/');
 	});
 });

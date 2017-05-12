@@ -91,17 +91,31 @@ p{
     margin-left: -17px;
     color: #CCCCCC;
 }
-td{
-	text-align:left;
-}
+
 .panel{
 	padding-bottom:10px;
+	background:#EFFAF8;
+	border-color:#83D8C5 !important;
 }
 .panel-heading{
 	background:#83D8C5 !important;
 }
+.panel-body{
+	border-color:#83D8C5 !important;
+ 	background:#d9f4f1 !important;
+}
+.panel-footer{
+	border-color:#83D8C5 !important;
+ 	background:#d9f4f1 !important;
+}
+
+input{
+	text-align: left !important;
+	background:#EFFAF8;
+}
 .well{
 	background:#d9f4f1 !important;
+	border-color:#83D8C5 !important;
 }
  .instr{
  	background:#d9f4f1 !important;
@@ -109,12 +123,12 @@ td{
  }
 .fixed-panel {
   min-height: 10;
-  max-height: 343;
-  overflow-y: scroll;
+  max-height: 343 !important;
+  overflow-y: scroll !important;
 }
-/****** Entry (Input Area) Section ******/
+/****** Buttons Section ******/
 
-.long_btn{
+/*.long_btn{
 	width: 400px;
 	height: 35px;
 	color:black!important;
@@ -122,15 +136,18 @@ td{
 	font-style: bold;
 	background-color: #d9f4f1;
     border: 4px turquoise;
-}
+}*/
 .newBtn{
 	width: auto;
 	height: 35px;
 	color:black!important;
 	font-size: 15px;
 	font-style: bold;
-	background-color: lavendar;
+	background-color: #EFFAF8;
     border: 4px turquoise;
+}
+#newItem{
+	background-color:#EFFAF8;
 }
 .gotItBtn{
 
@@ -198,46 +215,6 @@ td{
     background-color: #368e83;
 }
 
-/****** Main Section Tables ******/
-
-table {
-    table-layout: fixed;
-}
-
-.table-fixed thead {d
-  width: 97%;
-}
-.table-fixed tbody {
-  height: 410px;
-  overflow-y: auto;
-  width: 100%;
-}
-.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
-  display: block;
-}
-.table-fixed tbody td, .table-fixed thead > tr> th {
-  float: left;
-  border-bottom-width: 0;
-}
-
-/*Lines 130 to 147 are suggestions on controlling the table cell widths*/
-/*.toBuy{
-	table-layout: fixed;
-	border-collapse: collapse;
-}
-*/
-/*td:first-child{
-	width:10%;
-}
-td:second-child{
-	width:70%;
-}
-td:third-child{
-	width:10%;
-}
-td:last-child{
-	width:10%;
-}*/
 .footer{
 	float: left;
 	padding-top: 30px;

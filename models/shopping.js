@@ -15,8 +15,11 @@ var thingsToBuy = {
 		orm.update('shop_items', id, cb);
 	},
 
- 	// truncate: function (tableInput, cb){
- 	// 	orm.truncate('shop_items', tableInput, cb);
+ 	truncate: function (tableInput, cb){
+ 		orm.truncate('shop_items', tableInput, cb);
+ 	},
+ 	// truncate: function (id, cb){
+ 	// 	orm.truncate('shop_items', id, cb);
  	// },
 
     delete: function (id, cb) {
@@ -26,4 +29,3 @@ var thingsToBuy = {
 };
 
 module.exports = thingsToBuy;
-
